@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2024 at 03:37 PM
+-- Generation Time: Mar 18, 2024 at 03:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,11 +68,11 @@ CREATE TABLE `artist` (
 
 INSERT INTO `artist` (`id`, `username`, `email`, `password`, `mode`, `created_at`) VALUES
 (1, 'username', 'email', 'password', 'mode', 'created_at'),
-(2, 'isisoftwaresolutions', 'contact.isisoftwaresolutions@gmail.com', 'isis123', 'NA', '2024-02-29'),
 (3, 'madhu', 'madhu@gmail.com', 'madhu', 'NA', '2024-02-29'),
 (4, 'Sanam Kumari', 'sanam123@artwork.com', 'sanam', 'EA', '2024-02-29'),
 (7, 'mahesh', 'mahesh@artwork.com', 'mahesh', 'EA', '2024-03-01'),
-(8, 'admin', 'admin@gmail.com', 'admin', 'admin', '02-03-2024');
+(8, 'admin', 'admin@gmail.com', 'admin', 'admin', '02-03-2024'),
+(9, 'uma', 'uma@gmail.com', 'uma', 'NA', '2024-03-18');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,25 @@ INSERT INTO `chat` (`chat_id`, `sendby`, `sendto`, `message`, `created_at`) VALU
 (18, 8, 7, '20240302150317.jfif', '2024-03-02'),
 (19, 8, 7, '20240302151200.jpg', '2024-03-02'),
 (20, 8, 7, '20240302151323.pdf', '2024-03-02'),
-(21, 8, 4, '20240302151813.jpg', '2024-03-02');
+(21, 8, 4, '20240302151813.jpg', '2024-03-02'),
+(22, 12, 7, 'hiii', '2024-03-18'),
+(23, 9, 7, 'hello', '2024-03-18'),
+(24, 12, 7, 'hello', '2024-03-18'),
+(25, 7, 9, 'fed', '2024-03-18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `feedback` varchar(1500) NOT NULL,
+  `star` varchar(100) NOT NULL,
+  `created_at` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -157,6 +175,12 @@ ALTER TABLE `chat`
   ADD PRIMARY KEY (`chat_id`);
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -170,7 +194,7 @@ ALTER TABLE `art`
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `artorders`
@@ -182,7 +206,13 @@ ALTER TABLE `artorders`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
