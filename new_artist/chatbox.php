@@ -27,14 +27,15 @@
 <script>
      var userid = document.getElementById("new_artist_userid").value;
     var eid= 0
-    let viewDetails = (id,username)=>{
-        eid =id
-       document.getElementById("eid").textContent = username;
-       let uploadbtn=(event)=>{
+    let uploadbtn=(event)=>{
         const selectedFile = event.target.files[0];
         document.getElementById("message").value = selectedFile.name
     console.log("Selected file:", selectedFile.name);
     }
+    let viewDetails = (id,username)=>{
+        eid =id
+       document.getElementById("eid").textContent = username;
+ 
     $.ajax({
                 type:"GET",
                 url:"../server/chatlistServices.php",

@@ -72,7 +72,7 @@ select{
 }
 .feedo{
     position:absolute;
-    
+    left:230;
     top:0;
     padding: 10px;
     background-color:green;
