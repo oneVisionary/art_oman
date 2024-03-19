@@ -35,25 +35,28 @@
         document.getElementById("message").value = selectedFile.name
     console.log("Selected file:", selectedFile.name);
     }
-       $.ajax({
+    $.ajax({
                 type:"GET",
                 url:"../server/chatlistServices.php",
                 data: { userid: userid ,expertid:eid}, 
                 dataType: "json", 
                 success:function(response){
-                    console.log("35:"+response)
+                   // console.log("35:"+response)
                     $(".message").html('');
                    response.forEach((expert,index)=>{
                     let messageClass = expert.sendby == userid ? 'to' : 'send';
+                    console.log(expert.message)
+                    let myMessage = expert.message
                     let allowedExtensions = ['.jpg', '.docx', '.pdf', '.png', '.gif'];
-                        let hasAllowedExtension = allowedExtensions.some(extension => messageContent.toLowerCase().includes(extension));
-                        if (hasAllowedExtension) {
-               
-                content = `<div class='${messageClass}'><a href="../server/download.php?file=${encodeURIComponent(messageContent)}" target="_blank">${messageContent}</a></div>`;
-            } else {
-              
-                content = `<div class='${messageClass}'>${messageContent}</div>`;
-            }
+                    let hasAllowedExtension = allowedExtensions.some(extension => myMessage.toLowerCase().includes(extension));
+                    console.log(hasAllowedExtension)
+                    if(hasAllowedExtension){
+                        content = `<div class='${messageClass}'><a href="../server/download.php?file=${encodeURIComponent(myMessage)}" target="_blank">${myMessage}</a></div>`;
+                    }
+                    else{
+
+                        content = `<div class='${messageClass}'>${myMessage}</div>`;
+                    }
 
           $(".message").append(content);
 
@@ -76,7 +79,7 @@
                 
                 success:function(response){
                     alert("message send successfully")
-                    document.getElementById("message").value
+                    document.getElementById("message").value =""
                    // window.location.href ='chatbox.php'
                     //localStorage.setItem("artData",JSON.stringify(response))
                 },

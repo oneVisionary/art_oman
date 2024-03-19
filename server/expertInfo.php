@@ -27,6 +27,7 @@ else if($cmd=="viewspecificart") {
     $res = $dbConnection->allartworks('art where art_id =');
     echo $res;
 }
+
 else if($cmd=="chatsend") {
     $res = $dbConnection->chatMessage('chat');
     echo $res;

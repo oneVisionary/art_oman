@@ -1,5 +1,5 @@
 <?php include("header.php") ?>
-<input type="hidden" id="new_artist_userid" value="12"/>
+<input type="hidden" id="new_artist_userid" value="8"/>
 <h4>Chatbox</h4>
 <div class="adminchat_container">
 
@@ -16,15 +16,10 @@
         
         </div>
         <div class="text_send">
-            <input type="text" class="chattext" placeholder="Type Here" id="message">
+        <input type="text" class="chattext" placeholder="Type Here" id="message">
             <button class="chatsend" onclick=sendbtn()>Send</button>
-<<<<<<< HEAD
             <img class="uploadbtn" onclick="document.getElementById('fileupload').click()" src="../asset/images/upload1.png" height="60px" width="60px">
           <input type="file" id="fileupload" name="fileupload" style="display:none;" onchange="uploadbtn(event)">
-
-=======
-            <button class="uploadImg" onclick = uploadBtn()><img src="../asset/images/upload.png" alt="" height="40px" width="40px"></button>
->>>>>>> 72abca46799a37bf3d7e86ca1259e22a8e963a7c
         </div>
     </div>
    

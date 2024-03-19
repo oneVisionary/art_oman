@@ -73,6 +73,7 @@
     }
     let sendbtn = ()=>{
        var message = document.getElementById("message").value
+       console.log("expert info:"+userid+",ep:"+eid)
        $.ajax({
                 type:"POST",
                 url:"../server/chat_services.php",

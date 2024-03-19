@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 03:35 PM
+-- Generation Time: Mar 19, 2024 at 10:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -72,7 +72,9 @@ INSERT INTO `artist` (`id`, `username`, `email`, `password`, `mode`, `created_at
 (4, 'Sanam Kumari', 'sanam123@artwork.com', 'sanam', 'EA', '2024-02-29'),
 (7, 'mahesh', 'mahesh@artwork.com', 'mahesh', 'EA', '2024-03-01'),
 (8, 'admin', 'admin@gmail.com', 'admin', 'admin', '02-03-2024'),
-(9, 'uma', 'uma@gmail.com', 'uma', 'NA', '2024-03-18');
+(9, 'uma', 'uma@gmail.com', 'uma', 'NA', '2024-03-18'),
+(10, 'Timur', 'timur@art.com', 'timur', 'NA', '2024-03-19'),
+(11, 'Naveen', 'naveen@artwork.com', 'naveen', 'EA', '2024-03-19');
 
 -- --------------------------------------------------------
 
@@ -115,22 +117,26 @@ CREATE TABLE `chat` (
 --
 
 INSERT INTO `chat` (`chat_id`, `sendby`, `sendto`, `message`, `created_at`) VALUES
-(1, 3, 7, 'Hi how are u', '2024-03-01'),
-(2, 8, 4, 'Hello', '2024-03-02'),
-(3, 8, 7, 'from admin the chats is', '2024-03-02'),
-(4, 3, 4, 'Hi sanam here is madhu', '2024-03-02'),
-(5, 3, 7, 'Hi mahesh here is madhu', '2024-03-02'),
-(6, 8, 4, 'nice to meet u', '2024-03-02'),
-(7, 4, 3, 'I will chech for you', '2024-03-02'),
-(8, 4, 8, 'Hi hello', '2024-03-02'),
-(18, 8, 7, '20240302150317.jfif', '2024-03-02'),
-(19, 8, 7, '20240302151200.jpg', '2024-03-02'),
-(20, 8, 7, '20240302151323.pdf', '2024-03-02'),
-(21, 8, 4, '20240302151813.jpg', '2024-03-02'),
-(22, 12, 7, 'hiii', '2024-03-18'),
-(23, 9, 7, 'hello', '2024-03-18'),
-(24, 12, 7, 'hello', '2024-03-18'),
-(25, 7, 9, 'fed', '2024-03-18');
+(29, 8, 7, 'Hello mahesh, this is admin', '2024-03-19'),
+(30, 7, 8, 'I will chat with you in a minute', '2024-03-19'),
+(31, 8, 7, 'Sure mahesh i will be in wait', '2024-03-19'),
+(32, 10, 7, 'hi mahesh this timur can u see my art i will upload here', '2024-03-19'),
+(33, 10, 7, 'Nice to meet u timur', '2024-03-19'),
+(34, 7, 10, 'This from mahes expert side', '2024-03-19'),
+(35, 10, 7, 'Hi mahesh this from timur', '2024-03-19'),
+(36, 10, 11, 'Hi this uma from new expert side', '2024-03-19'),
+(37, 10, 11, 'This is naveen expert here', '2024-03-19'),
+(38, 10, 11, 'Hi timur how are you man by naveen', '2024-03-19'),
+(39, 10, 11, 'This is an again message by expert naveen', '2024-03-19'),
+(40, 10, 11, 'This by NVN', '2024-03-19'),
+(41, 11, 10, 'Hwllo bo by navenne', '2024-03-19'),
+(42, 10, 11, 'Hi naveen this is timur how r u man', '2024-03-19'),
+(43, 11, 10, 'How is going on??', '2024-03-19'),
+(44, 10, 11, 'Everything good here naveen', '2024-03-19'),
+(45, 10, 11, 'How abt ur family', '2024-03-19'),
+(46, 11, 10, 'yes going well timur', '2024-03-19'),
+(47, 8, 11, 'Hi naveen this is admin side how are u.. what abt ur work', '2024-03-19'),
+(48, 11, 8, 'Good man i will update', '2024-03-19');
 
 -- --------------------------------------------------------
 
@@ -143,8 +149,21 @@ CREATE TABLE `comment` (
   `name` varchar(25) NOT NULL,
   `feedback` varchar(1500) NOT NULL,
   `star` varchar(100) NOT NULL,
-  `created_at` varchar(100) NOT NULL
+  `created_at` varchar(100) NOT NULL,
+  `artid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `name`, `feedback`, `star`, `created_at`, `artid`) VALUES
+(4, 'Riya', 'Good Art', '5', '2024-03-19', 3),
+(5, 'Sona', 'Wow beautiful', '3', '2024-03-19', 3),
+(6, 'Noman', 'Good to see', '5', '2024-03-19', 3),
+(7, 'Sana', 'Good One', '4', '2024-03-19', 1),
+(8, 'binu', 'not good to appreciate', '3', '2024-03-19', 1),
+(9, 'Hosan', 'Good to see', '4', '2024-03-19', 1);
 
 --
 -- Indexes for dumped tables
@@ -194,7 +213,7 @@ ALTER TABLE `art`
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `artorders`
@@ -206,13 +225,13 @@ ALTER TABLE `artorders`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
